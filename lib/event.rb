@@ -10,7 +10,7 @@ class Event
     @start_date = Time.parse(start_date)# convertie la str en objet time
     @duration = duration.to_i #convertie en entier
     @title = title
-    @attendees = attendees
+    @attendees = attendees.join(", ")#convertie l'array en string
     @@all_events << self
   end
 
@@ -31,11 +31,11 @@ class Event
   end
 
   def is_soon?
-    @start_date - Time.now < 1800 #cimpare la dif entre debut et heure actuelle avec 30min 
+    @start_date - Time.now < 1800 #compare la dif entre debut et heure actuelle avec 30min 
   end
 
   def to_s
-    "titre : #{@title}, date de debut : #{@start_date}, durée : #{@duration} minutes, invités : #{@attendees}   "
+    "titre : #{@title}, date de debut : #{@start_date}, durée : #{@duration} minutes, invités : #{@attendees}"
   end
 
 end
