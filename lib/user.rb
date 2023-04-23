@@ -19,13 +19,12 @@ class User
     @@all_users
   end
 
-  def find_by_email(email)
+  def self.find_by_email(email)
     @@all_users.each do |user|
       if user.email == email
         return user
       end
     end
-    return "n'est pas present"
-    
+    return "n'est pas present"  
   end
 end
