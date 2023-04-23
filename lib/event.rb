@@ -34,6 +34,10 @@ class Event
     @start_date - Time.now < 1800 #compare la dif entre debut et heure actuelle avec 30min 
   end
 
+  def postpone_24h
+    @start_date += 24*60*60 # permet de decaler de 24h le start_date
+  end
+
   def to_s
     "titre : #{@title}, date de debut : #{@start_date}, durée : #{@duration} minutes, invités : #{@attendees}"
   end
