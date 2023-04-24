@@ -8,9 +8,9 @@ class Event
 
   def initialize(start_date, duration, title, attendees)
     @start_date = Time.parse(start_date)# convertie la str en objet time
-    @duration = duration.to_i #convertie en entier
+    @duration = duration
     @title = title
-    @attendees = attendees.join(", ")#convertie l'array en string
+    @attendees = attendees
     @@all_events << self
   end
 
@@ -39,7 +39,40 @@ class Event
   end
 
   def to_s
-    "titre : #{@title}, date de debut : #{@start_date}, durée : #{@duration} minutes, invités : #{@attendees}"
+    puts "titre : #{@title}"
+    puts "date de debut : #{@start_date}"
+    puts "durée : #{@duration} minutes"
+    puts "Invités :"
+    puts  @attendees.each {|attendee| puts attendee.email}
   end
 
+  def age_analysis
+    age_array = [] #On initialise un array qui va contenir les âges de tous les participants à un évènement
+    average = 0 #On initialise une variable pour calculer la moyenne d'âge à l'évènement
+  
+    @attendees.each do |attendee| #On parcourt tous les participants (objets de type User)
+      age_array << attendee.age #leur âge est stocké dans l'array des âges
+      average = average + attendee.age #leur âge est additionné pour préparer le calcul de la moyenne
+    end
+  
+    average = average / @attendees.length #on divise la somme des âges pour avoir la moyenne
+  
+    puts "Voici les âges des participants :"
+    puts age_array.join(", ")
+    puts "La moyenne d'âge est de #{average} ans"
+  end
+end
+
+
+
+class WorkEvent < Event
+  def is_event_acceptable?
+    if @attendees.length > 3 || @duration > 60
+      puts "Cette réunion ne respecte pas nos bonnes pratiques !"
+      return false
+    else
+      puts "Cette réunion est OK."
+      return true
+    end
+  end
 end

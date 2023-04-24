@@ -1,7 +1,7 @@
 require_relative 'event.rb'
 
 class EventCreator
-  def self.run #.run permet d'exécuter la classe comme un script autonome
+  def self.run #permet d'exécuter la classe comme un script autonome
 
     # Demande des informations sur l'événement à l'utilisateur
     puts "Création d'un événement :"

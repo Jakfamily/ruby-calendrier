@@ -1,8 +1,10 @@
-require './lib/user'
-require './lib/event'
-require './lib/event_creator'
+require_relative 'lib/user'
+require_relative 'lib/event'
 
 
+
+
+#j'exécute la nouvelle méthode que j'ai écrite
 # julie = User.new("julie@email.com", 32)
 # puts julie.email
 # puts julie.age
@@ -13,7 +15,7 @@ require './lib/event_creator'
 
 
 # event = Event.new("2023-04-01 13:00" , 60, "meeting", ["alice@gmail.com", "jhon@gmail.com"])
-# puts event.to_s
+# # puts event.to_s
 
 
 # #On cherche un des user à partir de son e-mail
@@ -24,5 +26,5 @@ require './lib/event_creator'
 # puts "voici l'email du User trouvé : #{user_1.email}"
  
 
-EventCreator.run
+# EventCreator.run
 

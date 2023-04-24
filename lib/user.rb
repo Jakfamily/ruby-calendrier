@@ -1,9 +1,8 @@
 class User
+   # On définit les attributs email et age en lecture et écriture grâce à attr_accessor
+  attr_accessor :email, :age
  # On crée une variable de classe @@all_users qui sera un array vide
   @@all_users = []
-
-  # On définit les attributs email et age en lecture et écriture grâce à attr_accessor
-  attr_accessor :email, :age
 
   # Le constructeur initialize permet de définir les attributs email et age dès la création d'un nouvel utilisateur
   def initialize(email, age)
@@ -25,6 +24,7 @@ class User
         return user
       end
     end
-    return "n'est pas present"  
+      puts "aucun utilisateur n'a cet email"  
+      return false
   end
 end
